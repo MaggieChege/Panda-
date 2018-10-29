@@ -6,7 +6,7 @@ def create_app(config_name):
     from app.api.v2 import blue as v2
     app.register_blueprint(v2)
    
-
+    
 
 
 

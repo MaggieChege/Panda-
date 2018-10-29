@@ -1,0 +1,28 @@
+import json
+import unittest
+
+
+class BaseTestCase(unittest.TestCase):
+    def setUp(self):
+        self.client = app.test_client(self)
+        
+    def get(self, url):
+        return self.client.get(url)
+
+    def post(self, url, data):
+        return self.client.post(url,
+                                data=json.dumps(data),
+                                content_type='application/json')
+
+    def put(self, url, data):
+        return self.client.put(
+            url,
+            data=json.dumps(data),
+            content_type='application/json'}
+        )
+
+    def delete(self, url):
+        return self.client.delete(url)
+
+    def tearDown(self):
+        pass
