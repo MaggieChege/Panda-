@@ -1,4 +1,5 @@
 from app.api.v2.models import UserModels,CommentsModel
+from app.pycli.login import Login
 
 task=str(input("Enter task: "))
 
@@ -15,3 +16,23 @@ if task== "add comment":
     comment=CommentsModel(message, author)
     comment.save()
     print("Comment added successfully")
+
+if task=="login":
+    email=str(input("Enter email: "))
+    password=str(input("Enter password: "))
+
+    if not email or email=="":
+        print("email is required")
+    elif not password or password=="":
+        print("password is required")
+    else:
+        attempt=Login(email,password)
+        if attempt:
+              print("Logged in successfully")
+
+
+
+
+
+
+

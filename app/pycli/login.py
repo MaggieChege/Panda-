@@ -9,8 +9,7 @@ class Login():
     def verify(self):
         user=UserModels.get_by_mail(self.email)
         if user:
-            if check_password_hash(user['password'],self.password):
-                print("logged in successfully")
+            return check_password_hash(user['password'],self.password)
         print("invalid credentials")        
 
 
