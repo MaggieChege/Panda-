@@ -37,25 +37,22 @@ class UserModels():
                 "role": self.role,
                 'date_added': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             }
-        users.append(new_user)
-
-        response = jsonify(new_user)
-
-        return response
+        return  users.append(new_user)
 
 class CommentsModel():
     '''Initializes a new product'''
-    def __init__(self, comment_id, message, author):
-        self.comment_id = comment_id
+    def __init__(self, message, author):
+        self.comment_id = len(comments) + 1
         self.message = message
         self.author = author
 
     def save(self):
         '''Saves a product by appending it to the products list'''
         new_comment = {
-            "comment_id": self.comment_id,
-            "message": self.message["message"],
-            "author": self.author["author"],
+            "message": self.message,
+            "author": self.author,
             'date_added': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         }
-        comments.append(new_comment)
+    
+        return comments.append(new_comment)
+
