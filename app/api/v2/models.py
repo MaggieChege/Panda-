@@ -18,7 +18,7 @@ comments = []
 
 class UserModels():
     '''Initializes a new user'''
-    def __init__(self, email, password, role):
+    def __init__(self, email, password):
         self.id = len(users) + 1
         self.email = email
         self.password = password
