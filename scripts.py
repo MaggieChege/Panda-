@@ -1,5 +1,6 @@
 from app.api.v2.models import UserModels,CommentsModel
 from app.pycli.login import Login
+from app.pycli.comment import Comment
 
 task=str(input("Enter task: "))
 
@@ -29,6 +30,14 @@ if task=="login":
         attempt=Login(email,password)
         if attempt:
               print("Logged in successfully")
+
+if task=="delete comment":
+    comment_id=str(input("Enter comment id: "))
+    if comment_id:
+        deleted=Comment.delete_comment(comment_id)
+        if deleted:
+            print("Comment deleted successfully")
+    print("Comment does not exist")
 
 
 

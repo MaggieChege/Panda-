@@ -10,7 +10,7 @@ class Login():
         user=UserModels.get_by_mail(self.email)
         if user:
             return check_password_hash(user['password'],self.password)
-        print("invalid credentials")        
+       
 
 
 

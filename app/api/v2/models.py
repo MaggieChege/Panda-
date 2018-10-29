@@ -11,11 +11,15 @@ sample_user={"email":"panda@gmail.com",
 
 users.append(sample_user)
 
+sample_comment={"id": "1",
+"message": "This is a comment",
+"author":"panda"}
+
 
 
 comments = []
 
-
+comments.append(sample_comment)
 class UserModels():
     '''Initializes a new user'''
     def __init__(self, email, password):
@@ -56,4 +60,18 @@ class CommentsModel():
         }
     
         return comments.append(new_comment)
+        
+    @staticmethod
+    def get_by_id(comment_id):
+        if comment_id:
+            comment=[comment for comment in comments if comment['id']==str(comment_id)]
+            if comment:
+                return comment
+            else:
+                print("comment does not exist")
 
+    @staticmethod
+    def delete_by_id(comment_id):
+        for x, comment in enumerate(comments):
+            if  comment['id']==str(comment_id):
+                comments.pop(x)
