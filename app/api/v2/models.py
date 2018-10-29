@@ -1,11 +1,11 @@
 '''This module holds all data and logic of the users in the application'''
 from flask import make_response, jsonify
 from datetime import datetime
-
+from werkzeug.security import generate_password_hash
 users = []
 
 sample_user={"email":"panda@gmail.com",
-"password":"123456",
+"password":generate_password_hash("123456"),
 "role":"admin"
 }
 
@@ -21,10 +21,11 @@ class UserModels():
     def __init__(self, email, password):
         self.id = len(users) + 1
         self.email = email
-        self.password = password
+        self.password = generate_password_hash(password)
         self.role = "normal"
 
-    def get_by_mail(self,email):
+    @staticmethod
+    def get_by_mail(email):
         user=[user for user in users if user['email']==str(email)]
         return user
         
