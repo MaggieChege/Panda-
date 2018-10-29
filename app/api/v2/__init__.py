@@ -7,4 +7,4 @@ from app.api.v2.views import User
 blue = Blueprint("api", __name__, url_prefix="/api/v2")
 api=Api(blue)
 
-api.add_resource(User,'/user')
+api.add_resource(User,'/user', strict_slashes=False, endpoint='post_user')
